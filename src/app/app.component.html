@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
 
   <div>
     <p>Hi my name is Jawahiraih </p>
@@ -17,17 +17,22 @@
     >Submit</button>
 
   </form>
+  <select class="form-select" aria-label="Default select example" [(ngModel)]="listFilter" >
+    <option value="0">All</option>
+    <option value="1">Not completed</option>
+    <option value="2" >completed</option>
+  </select>
 
 
-  <div *ngIf=" items.length ==0; else showItems">
+  <div *ngIf=" visibleTasks.length ==0; else showItems">
     <p>No Items</p>
   </div>
   <ng-template #showItems>
     <ul class="to-do-list">
-      <li *ngFor="let item of items">
+      <li *ngFor="let task of visibleTasks">
         <div class="form-check">
           <div class="form-check-label">
-            <input class="checkbox" type="checkbox"  [checked]="item.isComplete" (click)="toggleItem(item)"/> {{item.toDoText}}
+            <input class="checkbox" type="checkbox"  [checked]="task.isComplete" (click)="toggleItem(task)"/> {{task.toDoText}}
           </div>
         </div>
       </li>

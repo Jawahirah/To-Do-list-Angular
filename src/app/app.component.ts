@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ToDoItem} from '../shared/models/toDoItem'
+import { ToDoItem } from '../shared/models/toDoItem'
 
 @Component({
   selector: 'app-root',
@@ -7,22 +7,37 @@ import {ToDoItem} from '../shared/models/toDoItem'
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  items :ToDoItem[] =[]
-  newTaskText='';
-  title = 'todolist';
+  items: ToDoItem[] = [
+    new ToDoItem('Having a job'),
+    new ToDoItem('Buying a car'),
+    new ToDoItem('Having a license'),
+  ];
+
+  newTaskText = '';
+  listFilter: String = '0';
 
   // Add the task to the to-do list 
-  addNewTask(){
+  addNewTask() {
     this.items.push(new ToDoItem(this.newTaskText));
-    this.newTaskText='';
+    this.newTaskText = '';
   }
 
-  clearTextBox(){
 
-  }
   // Check and uncheck the item in the to-do list
-  toggleItem(toDOItem:ToDoItem){
-    toDOItem.isComplete=!toDOItem.isComplete;
+  toggleItem(toDOItem: ToDoItem) {
+    toDOItem.isComplete = !toDOItem.isComplete;
     console.log(toDOItem)
-  }
+  };
+
+  get visibleTasks():  ToDoItem[]{
+    let taskStatus= this.listFilter;
+    if (taskStatus == '0') {
+      return this.items;
+    } else if (taskStatus == '1') {
+      return this.items.filter(task=>!(task.isComplete));
+    } else {
+      return this.items.filter(task=>task.isComplete);
+    }
+  };
+
 }
