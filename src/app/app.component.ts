@@ -12,15 +12,8 @@ export class AppComponent {
     new ToDoItem('Buying a car'),
     new ToDoItem('Having a license'),
   ];
-
-  newTaskText = '';
   listFilter: String = '0';
-
-  // Add the task to the to-do list 
-  addNewTask() {
-    this.items.push(new ToDoItem(this.newTaskText));
-    this.newTaskText = '';
-  }
+  
 
 
   get visibleTasks():  ToDoItem[]{

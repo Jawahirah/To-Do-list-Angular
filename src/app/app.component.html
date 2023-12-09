@@ -1,22 +1,11 @@
 <div class="container" >
 
-  <div>
-    <p>Hi my name is Jawahiraih </p>
-  </div>
-  <form>
 
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="text" name="new-task" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="newTaskText">
-    </div>
+<add-task-form 
+(addTask)="items.push($event)"
+>
   
-    <button 
-    type="submit" 
-    class="btn btn-primary"
-    (click)="$event.preventDefault(); addNewTask()"
-    >Submit</button>
-
-  </form>
+</add-task-form>
   <select class="form-select" aria-label="Default select example" [(ngModel)]="listFilter" >
     <option value="0">All</option>
     <option value="1">Not completed</option>
