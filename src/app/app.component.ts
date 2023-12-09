@@ -23,12 +23,6 @@ export class AppComponent {
   }
 
 
-  // Check and uncheck the item in the to-do list
-  toggleItem(toDOItem: ToDoItem) {
-    toDOItem.isComplete = !toDOItem.isComplete;
-    console.log(toDOItem)
-  };
-
   get visibleTasks():  ToDoItem[]{
     let taskStatus= this.listFilter;
     if (taskStatus == '0') {

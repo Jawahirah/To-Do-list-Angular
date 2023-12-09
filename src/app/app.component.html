@@ -24,18 +24,10 @@
   </select>
 
 
-  <div *ngIf=" visibleTasks.length ==0; else showItems">
-    <p>No Items</p>
-  </div>
-  <ng-template #showItems>
-    <ul class="to-do-list">
-      <li *ngFor="let task of visibleTasks">
-        <div class="form-check">
-          <div class="form-check-label">
-            <input class="checkbox" type="checkbox"  [checked]="task.isComplete" (click)="toggleItem(task)"/> {{task.toDoText}}
-          </div>
-        </div>
-      </li>
-    </ul>
-  </ng-template>
+<todo-list
+
+[tasks]="visibleTasks"
+>
+</todo-list>
 </div>
+<!-- [Child Component input property ]= Parent Component input property -->
