@@ -12,19 +12,7 @@ export class AppComponent {
     new ToDoItem('Buying a car'),
     new ToDoItem('Having a license'),
   ];
-  listFilter: String = '0';
-  
 
-
-  get visibleTasks():  ToDoItem[]{
-    let taskStatus= this.listFilter;
-    if (taskStatus == '0') {
-      return this.items;
-    } else if (taskStatus == '1') {
-      return this.items.filter(task=>!(task.isComplete));
-    } else {
-      return this.items.filter(task=>task.isComplete);
-    }
-  };
+  filterTasks:any =()=>{};
 
 }
