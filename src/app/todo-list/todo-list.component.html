@@ -3,12 +3,10 @@
   </div>
   <ng-template #showItems>
     <ul class="to-do-list">
-      <li *ngFor="let task of tasks">
-        <div class="form-check">
-          <div class="form-check-label">
-            <input class="checkbox" type="checkbox"  [checked]="task.isComplete" (click)="toggleItem(task)"/> {{task.toDoText}}
-          </div>
-        </div>
-      </li>
+      <todo-list-task
+      *ngFor="let task of tasks"
+      [taskText]="task.toDoText"
+      [(fulfilled)]="task.isComplete"
+      ></todo-list-task>
     </ul>
   </ng-template>

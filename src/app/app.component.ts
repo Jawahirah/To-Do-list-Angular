@@ -13,6 +13,8 @@ export class AppComponent {
     new ToDoItem('Having a license'),
   ];
 
-  filterTasks:any =()=>{};
+  filterTasks(item:any){
+    return item;
+  }
 
 }

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ToDoItem } from '../../shared/models/toDoItem'
 import { TodoListComponent } from './todo-list.component';
 
 describe('TodoListComponent', () => {

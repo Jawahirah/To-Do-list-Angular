@@ -1,4 +1,4 @@
-import { Component,Output,EventEmitter } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { ToDoItem } from '../../shared/models/toDoItem'
 
 const filters=[
@@ -12,17 +12,19 @@ const filters=[
   styleUrl: './task-filter.component.css'
 })
 export class TaskFilterComponent {
-  listFilter: String = '0';
-  @Output() filter= new EventEmitter<any>();
+
+  @Input()  filter: any;
+  @Output() filterChange= new EventEmitter<any>();
 
   //Initialization for this component 
   ngOnInit():void{
-    this.changeFilter('0');
+    this.updateFilter('0');
   }
-
+  listFilter: String = '0';
   // Emit our filter event to the parent component 
-  changeFilter(value: any){
-    this.filter.emit(filters[value])
+  updateFilter(value: any){
+    this.filter=filters[value];
+    this.filterChange.emit(this.filter)
   }
 
 }

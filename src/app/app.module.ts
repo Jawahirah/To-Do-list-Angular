@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
 import { TaskFilterComponent } from './task-filter/task-filter.component';
+import { TodoListTaskComponent } from './todo-list-task/todo-list-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     AddTaskFormComponent,
-    TaskFilterComponent
+    TaskFilterComponent,
+    TodoListTaskComponent
   ],
   imports: [
     BrowserModule,
