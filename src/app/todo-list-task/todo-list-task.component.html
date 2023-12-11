@@ -1,6 +1,6 @@
 <li >
     <div class="form-check">
-      <div class="form-check-label">
+      <div class="form-check-label" [ngClass]="cssClases" >
         <input class="checkbox" type="checkbox"  [checked]="fulfilled" (click)="toggleFulfilled()"/> {{taskText}}
       </div>
     </div>

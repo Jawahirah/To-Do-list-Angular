@@ -17,6 +17,10 @@ export class TodoListTaskComponent {
    this.fulfilled=!this.fulfilled;
    this.fulfilledChange.emit(this.fulfilled)
   };
+
+  get cssClases(){
+    return {'strike text-muted': this.fulfilled };
+  };
 }
 
 
