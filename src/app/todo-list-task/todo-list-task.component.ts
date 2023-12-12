@@ -1,6 +1,6 @@
 import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { ToDoItem } from '../../shared/models/toDoItem'
-import events from './../../shared/services/EventService'
+import {EventService} from './../../shared/services/EventService'
 
 
 @Component({
@@ -9,6 +9,10 @@ import events from './../../shared/services/EventService'
   styleUrl: './todo-list-task.component.css'
 })
 export class TodoListTaskComponent {
+constructor(private event: EventService){
+
+}
+
 @Input() task!: ToDoItem;
 
 
@@ -22,7 +26,7 @@ export class TodoListTaskComponent {
   };
 
   removeTask(){
-    events.emit('removeTask',this.task);
+    this.event.emit('removeTask',this.task);
   }
 }
 

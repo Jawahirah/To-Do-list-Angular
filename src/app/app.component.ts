@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToDoItem } from '../shared/models/toDoItem'
-import events from './../shared/services/EventService'
+import {EventService} from './../shared/services/EventService'
+import {TaskService} from './task.service'
 
 
 @Component({
@@ -8,22 +9,28 @@ import events from './../shared/services/EventService'
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  constructor(){
-    events.listen('removeTask',(task:any)=>{
+export class AppComponent implements OnInit{
+  constructor(event:EventService, private taskService: TaskService){
+    // Listent to remove task event 
+     event.listen('removeTask',(task:any)=>{
      let index=this.items.indexOf(task);
      this.items.splice(index,1);
     });
   }
-  items: ToDoItem[] = [
-    new ToDoItem('Having a job'),
-    new ToDoItem('Buying a car'),
-    new ToDoItem('Having a license'),
-  ];
+
+  ngOnInit(): void {
+    this.taskService.getTask().subscribe((data:any)=>{
+      this.items=data;
+    });
+  }
+  // items: ToDoItem[]=[
+  //   new ToDoItem('First task')
+  // ];
+
+  items!: ToDoItem[];
 
   filterTasks(item:any){
     return item;
-  }
-
-  
+  } 
+  // filterTasks:any;
 }
