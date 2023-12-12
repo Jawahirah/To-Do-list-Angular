@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ToDoItem } from '../shared/models/toDoItem'
+import events from './../shared/services/EventService'
+
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,12 @@ import { ToDoItem } from '../shared/models/toDoItem'
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(){
+    events.listen('removeTask',(task:any)=>{
+     let index=this.items.indexOf(task);
+     this.items.splice(index,1);
+    });
+  }
   items: ToDoItem[] = [
     new ToDoItem('Having a job'),
     new ToDoItem('Buying a car'),
@@ -17,4 +25,5 @@ export class AppComponent {
     return item;
   }
 
+  
 }

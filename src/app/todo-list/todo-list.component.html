@@ -5,8 +5,7 @@
     <ul class="to-do-list">
       <todo-list-task
       *ngFor="let task of tasks"
-      [taskText]="task.toDoText"
-      [(fulfilled)]="task.isComplete"
+      [task]="task"
       ></todo-list-task>
     </ul>
   </ng-template>

@@ -1,5 +1,6 @@
 import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { ToDoItem } from '../../shared/models/toDoItem'
+import events from './../../shared/services/EventService'
 
 
 @Component({
@@ -8,19 +9,21 @@ import { ToDoItem } from '../../shared/models/toDoItem'
   styleUrl: './todo-list-task.component.css'
 })
 export class TodoListTaskComponent {
-@Input() taskText!: string;
-@Input() fulfilled!: boolean;
-@Output() fulfilledChange= new EventEmitter<boolean>();
+@Input() task!: ToDoItem;
+
 
   // Check and uncheck the item in the to-do list
   toggleFulfilled() {
-   this.fulfilled=!this.fulfilled;
-   this.fulfilledChange.emit(this.fulfilled)
+    this.task.isComplete = !this.task.isComplete;
   };
 
   get cssClases(){
-    return {'strike text-muted': this.fulfilled };
+    return {'strike text-muted': this.task.isComplete };
   };
+
+  removeTask(){
+    events.emit('removeTask',this.task);
+  }
 }
 
 
