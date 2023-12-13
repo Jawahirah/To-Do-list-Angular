@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToDoItem } from '../shared/models/toDoItem'
 import {EventService} from './../shared/services/EventService'
 import {TaskService} from './task.service'
+import { error } from 'console';
 
 
 @Component({
@@ -21,16 +22,14 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.taskService.getTask().subscribe((data:any)=>{
       this.items=data;
+    },(error)=>{
+      console.log(error.message);
     });
   }
-  // items: ToDoItem[]=[
-  //   new ToDoItem('First task')
-  // ];
 
-  items!: ToDoItem[];
+  items: ToDoItem[]=[];
 
   filterTasks(item:any){
     return item;
   } 
-  // filterTasks:any;
 }
