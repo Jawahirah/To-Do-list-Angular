@@ -1,6 +1,6 @@
 import { Component,Input,Output,EventEmitter } from '@angular/core';
-import { ToDoItem } from '../../shared/models/toDoItem'
-import {EventService} from './../../shared/services/EventService'
+import { ToDoItem } from '../../../shared/models/toDoItem'
+import {EventService} from '../../../shared/services/EventService'
 
 
 @Component({

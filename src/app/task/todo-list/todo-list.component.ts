@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ToDoItem } from '../../shared/models/toDoItem'
+import { ToDoItem } from '../../../shared/models/toDoItem'
 
 
 @Component({

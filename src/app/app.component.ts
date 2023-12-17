@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoItem } from '../shared/models/toDoItem'
 import {EventService} from './../shared/services/EventService'
-import {TaskService} from './task.service'
+import {TaskService} from './task/task.service'
 import { error } from 'console';
 
 
