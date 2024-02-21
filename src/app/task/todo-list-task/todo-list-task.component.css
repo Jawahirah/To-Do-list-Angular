@@ -1,3 +1,9 @@
 .strike{
     text-decoration: line-through;
 }
+
+input[type="checkbox"]{
+    accent-color: #150b46;
+    width: 1em;
+    height: 1.5rem;
+}

@@ -1,20 +1,3 @@
-<div class="container" >
-
-<!-- Add task component -->
-<!-- From the child to the parent -->
-<add-task-form 
-(addTask)="items.push($event)"
-></add-task-form>
-
-<!-- Two-way binding  -->
-<task-filter
-[(filter)]="filterTasks"
-></task-filter>
-
-<!-- To do list component -->
-<todo-list
-[tasks]="items.filter(filterTasks)"
-></todo-list>
-
-</div>
-<!-- [Child Component input property ]= Parent Component input property ()From the parent to the child -->
+<main class="border w-100 bg-light rounded p-4 ">
+    <app-task></app-task>
+</main>

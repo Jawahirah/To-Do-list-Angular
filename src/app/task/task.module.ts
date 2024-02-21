@@ -7,6 +7,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
 import { TaskFilterComponent } from './task-filter/task-filter.component';
 import { TodoListTaskComponent } from './todo-list-task/todo-list-task.component';
+import { TaskComponent } from './task.component';
 
 
 
@@ -15,7 +16,8 @@ import { TodoListTaskComponent } from './todo-list-task/todo-list-task.component
     TodoListComponent,
     AddTaskFormComponent,
     TaskFilterComponent,
-    TodoListTaskComponent
+    TodoListTaskComponent,
+    TaskComponent
   ],
   imports: [
     CommonModule,
@@ -23,11 +25,7 @@ import { TodoListTaskComponent } from './todo-list-task/todo-list-task.component
     HttpClientModule
   ],
   exports:[
-    TodoListComponent,
-    AddTaskFormComponent,
-    TaskFilterComponent,
-    TodoListTaskComponent,
- 
+   TaskComponent
   ]
 })
 export class TaskModule { }

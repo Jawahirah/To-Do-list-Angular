@@ -1,8 +1,8 @@
 <div *ngIf=" tasks.length ==0; else showItems">
-    <p>No Items</p>
+    <p class="ps-1">No Tasks</p>
   </div>
   <ng-template #showItems>
-    <ul class="to-do-list">
+    <ul class="p-0">
       <todo-list-task
       *ngFor="let task of tasks"
       [task]="task"

@@ -1,14 +1,12 @@
-<li class="d-flex justify-content-between" >
-    <div class="form-check">
-      <div class="form-check-label" [ngClass]="cssClases" >
-        <input class="checkbox" type="checkbox"  [checked]="task.isComplete" (click)="toggleFulfilled()"/> {{task.toDoText}}
+<li class="d-flex justify-content-between align-middle" >
+    <div class="ps-1">
+      <div [ngClass]="cssClases" >
+        <input class="rounded-5 align-middle me-1" type="checkbox"  [checked]="task.isComplete" (click)="toggleFulfilled()"/> {{task.toDoText}}
       </div>
     </div>
     <div>
       <button type="button" class="btn-close" (click)="removeTask()"></button>
     </div>
   </li>
-
-
 
 
