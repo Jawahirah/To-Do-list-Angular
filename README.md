@@ -1,6 +1,6 @@
 # ToDoList
 
-A simple To-do list web app.
+A simple To-do list Angular web app.
 
 ## Installation
 
